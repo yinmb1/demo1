@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="yy.demo.demo1.mybaits.mapper.IOutBoundApplyMapper">
+    <resultMap id="BaseResultMap" type="yy.demo.demo1.mybaits.entity.OutBoundApply">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="apply_serial_no" property="applySerialNo" jdbcType="VARCHAR"/>
+        <result column="apply_location" property="applyLocation" jdbcType="VARCHAR"/>
+        <result column="location_type" property="locationType" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="getbyapplySerialNo" resultMap="BaseResultMap">
+        SELECT *
+        FROM app_outbound_apply  where id=#{id}
+    </select>
+
+    <update id="updateOutBoundApply" parameterType="yy.demo.demo1.mybaits.entity.OutBoundApply" >
+        UPDATE  app_outbound_apply
+        <set>
+            <if test="applyLocation != null">apply_location=#{applyLocation,jdbcType=VARCHAR}</if>
+        </set>
+         where id=#{id}
+    </update>
+
+    <delete id="deleteOutBoundApply" >
+        DELETE FROM app_outbound_apply where id=#{id}
+    </delete>
+</mapper>

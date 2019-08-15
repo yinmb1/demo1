@@ -1,0 +1,9 @@
+# Run Listeners
+org.springframework.boot.SpringApplicationRunListener=\
+yy.demo.demo1.sourcecode.HelloSpringApplicationRunListener
+
+# Initializers
+org.springframework.context.ApplicationContextInitializer=\
+org.springframework.boot.autoconfigure.SharedMetadataReaderFactoryContextInitializer,\
+org.springframework.boot.autoconfigure.logging.AutoConfigurationReportLoggingInitializer,\
+yy.demo.demo1.sourcecode.HelloApplicationContextInitializer

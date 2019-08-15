@@ -1,0 +1,3 @@
+2019-07-10 00:00:48.686  main DEBUG org.springframework.boot.devtools.settings.DevToolsSettings:114 Included patterns for restart : []
+2019-07-10 00:00:48.696  main DEBUG org.springframework.boot.devtools.settings.DevToolsSettings:116 Excluded patterns for restart : [/spring-boot-starter/target/classes/, /spring-boot-autoconfigure/target/classes/, /spring-boot-starter-[\w-]+/, /spring-boot/target/classes/, /spring-boot-actuator/target/classes/, /spring-boot-devtools/target/classes/]
+2019-07-10 00:00:48.696  main DEBUG org.springframework.boot.devtools.restart.ChangeableUrls:61 Matching URLs for reloading : [file:/D:/gitcode/CEIS-app/1.0.0/demo1/target/classes/]
