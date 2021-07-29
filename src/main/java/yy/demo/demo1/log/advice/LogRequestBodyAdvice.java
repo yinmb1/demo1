@@ -25,13 +25,27 @@ import java.lang.reflect.Type;
 public class LogRequestBodyAdvice implements RequestBodyAdvice {
     public static final String reqStarttime =new String();
 
-
-
+    /**
+     * 该方法用于判断当前请求，是否要执行beforeBodyRead方法
+     * @param methodParameter handler方法的参数对象
+     * @param type handler方法的参数类型
+     * @param aClass 将会使用到的Http消息转换器类类型
+     * @return 返回true则会执行beforeBodyRead
+     */
     @Override
     public boolean supports(MethodParameter methodParameter, Type type, Class<? extends HttpMessageConverter<?>> aClass) {
         return true;
     }
 
+    /**
+     * 在Http消息转换器执转换，之后执行
+     * @param o 转换后的对象
+     * @param httpInputMessage 客户端的请求数据
+     * @param methodParameter handler方法的参数类型
+     * @param type handler方法的参数类型
+     * @param aClass 使用的Http消息转换器类类型
+     * @return 返回一个新的对象
+     */
     @Override
     public Object handleEmptyBody(Object o, HttpInputMessage httpInputMessage, MethodParameter methodParameter, Type type, Class<? extends HttpMessageConverter<?>> aClass) {
         Method method=methodParameter.getMethod();
@@ -40,12 +54,29 @@ public class LogRequestBodyAdvice implements RequestBodyAdvice {
         return o;
     }
 
+    /**
+     * 在Http消息转换器执转换，之前执行
+     * @param httpInputMessage 客户端的请求数据
+     * @param methodParameter handler方法的参数对象
+     * @param type handler方法的参数类型
+     * @param aClass 将会使用到的Http消息转换器类类型
+     * @return 返回 一个自定义的HttpInputMessage
+     */
     @Override
     public HttpInputMessage beforeBodyRead(HttpInputMessage httpInputMessage, MethodParameter methodParameter, Type type, Class<? extends HttpMessageConverter<?>> aClass) throws IOException {
         System.out.println("8888888888888888888888888");
         return httpInputMessage;
     }
 
+    /**
+     * 在Http消息转换器执转换，之后执行
+     * @param o 转换后的对象
+     * @param httpInputMessage 客户端的请求数据
+     * @param methodParameter handler方法的参数类型
+     * @param type handler方法的参数类型
+     * @param aClass 使用的Http消息转换器类类型
+     * @return 返回一个新的对象
+     */
     @Override
     public Object afterBodyRead(Object o, HttpInputMessage httpInputMessage, MethodParameter methodParameter, Type type, Class<? extends HttpMessageConverter<?>> aClass) {
         Method method=methodParameter.getMethod();
